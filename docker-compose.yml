@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  opensips:
+    image: opensips/opensips:3.2
+    container_name: opensips
+    ports:
+      - "5060:5060"
+      - "5060:5060/udp"
+    volumes:
+      - ./opensips.cfg:/etc/opensips/opensips.cfg  # Mapeia o arquivo de configuração
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+# Dockerfile para instalação de pacotes adicionais
