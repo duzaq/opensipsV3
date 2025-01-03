@@ -5,10 +5,10 @@ services:
     image: opensips/opensips:3.2
     container_name: opensips
     ports:
-      - "5060:5060"
-      - "5060:5060/udp"
+      - "5060:5060/udp"  # Expõe a porta 5060 para UDP
+      - "5060:5060/tcp"  # Expõe a porta 5060 para TCP (opcional, se necessário)
     volumes:
-      - ./opensips.cfg:/etc/opensips/opensips.cfg  # Mapeia o arquivo de configuração
+      - ./opensips.cfg:/etc/opensips/opensips.cfg
     build:
       context: .
       dockerfile: Dockerfile
